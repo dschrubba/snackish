@@ -2,9 +2,21 @@ import 'package:flutter/widgets.dart';
 import 'package:jp_app/themes/colors.dart';
 
 class SnackishStyles {
+  static const textLight = TextStyle(
+    height: 1,
+    fontSize: 16,
+    fontWeight: FontWeight.w300,
+    color: SnackishColors.textLight
+  );
+  static const headingMedium = TextStyle(
+    height: 1,
+    fontSize: 24,
+    fontWeight: FontWeight.w900,
+    color: SnackishColors.textLight
+  );
   static const buttonLabelLarge = TextStyle(
     height: 1,
-    fontSize: 20,
+    fontSize: 18,
     color: SnackishColors.textLight
   );
 }

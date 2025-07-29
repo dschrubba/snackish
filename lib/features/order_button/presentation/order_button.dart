@@ -27,18 +27,16 @@ class OrderButton extends StatelessWidget {
   const OrderButton({
     super.key,
     this.buttonText = "Order Now",
-    this.maxWidth = 250,
+    this.maxWidth = 210,
   });
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(maxHeight: 64, maxWidth: maxWidth),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadiusGeometry.circular(borderRadius),
-            child: Container(
+      constraints: BoxConstraints(maxHeight: 56, maxWidth: maxWidth),
+      child: ClipRRect(
+            borderRadius: BorderRadiusGeometry.circular(borderRadius),child:  Stack(
+        children: [Container(
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   colors: [
@@ -47,11 +45,8 @@ class OrderButton extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
           ),
-          ClipRRect(
-            borderRadius: BorderRadiusGeometry.circular(borderRadius),
-            child: Container(
+          Container(
               decoration: BoxDecoration(
                 backgroundBlendMode: BlendMode.overlay,
                 gradient: LinearGradient(
@@ -62,7 +57,6 @@ class OrderButton extends StatelessWidget {
                 ),
               ),
             ),
-          ),
           Container(
             width: double.infinity,
             height: double.infinity,
@@ -102,6 +96,9 @@ class OrderButton extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {},
                     style: ButtonStyle(
+                      padding: WidgetStateProperty.all(
+                        EdgeInsets.all(1)
+                      ),
                       minimumSize: WidgetStateProperty.all(
                         Size(double.infinity, double.infinity),
                       ),
@@ -118,10 +115,8 @@ class OrderButton extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ),
-        ],
+            ))],
       ),
-    );
+    ));
   }
 }

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jp_app/common/glass_card.dart';
+import 'package:jp_app/features/order_button/presentation/order_button.dart';
+import 'package:jp_app/themes/colors.dart';
+import 'package:jp_app/themes/styles.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -10,6 +14,45 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: AlignmentGeometry.xy(0.5, 0.5),
+          end: AlignmentGeometry.xy(0.5, 4),
+          colors: [
+            SnackishColors.darkBlueGradientB,
+            SnackishColors.darkBlueGradientA,
+          ],
+        ),
+      ),
+      child: Padding(padding: EdgeInsetsGeometry.all(24) ,child:  Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          GlassCard(
+            child: Column(
+              spacing: 14,
+              children: [
+                Text(
+                  "Feeling Snackish Today?",
+                  style: SnackishStyles.headingMedium,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  "Explore Angi's most popular snack selection and get instantly happy.",
+                  style: SnackishStyles.textLight,
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 4,
+                ),
+                OrderButton()
+              ]
+            )
+          ),
+        ],
+      )),
+    );
   }
 }
