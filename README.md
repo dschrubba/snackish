@@ -1,3 +1,3 @@
-# jp_app
+# Snackish
 
-A new Flutter project.
+A Flutter design project for learning purposes.
