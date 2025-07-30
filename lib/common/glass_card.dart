@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class GlassCard extends StatelessWidget {
   static const double borderRadius = 32;
-  static const double borderWidth = 3;
+  static const double borderWidth = 1;
   final Widget child;
   const GlassCard({super.key, required this.child});
 
