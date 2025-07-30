@@ -10,8 +10,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: SafeArea(child: SplashView())),
+    return MaterialApp(
+      home: SplashView()
     );
   }
 }
