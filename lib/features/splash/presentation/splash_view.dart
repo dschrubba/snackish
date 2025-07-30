@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jp_app/common/glass_card.dart';
 import 'package:jp_app/common/static_images.dart';
 import 'package:jp_app/features/order_button/presentation/order_button.dart';
+import 'package:jp_app/features/splash/presentation/splash_view_background.dart';
 import 'package:jp_app/themes/styles.dart';
 
 class SplashView extends StatefulWidget {
@@ -15,41 +16,39 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:  Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: Image.asset(StaticImages.backgroundStartScreen).image
-            )
-        ),
-        child: SafeArea(
-          child: Padding(padding: EdgeInsetsGeometry.all(24) ,child:  Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              GlassCard(
-                child: Column(
-                  spacing: 14,
-                  children: [
-                    Text(
-                      "Feeling Snackish Today?",
-                      style: SnackishStyles.headingMedium,
-                      textAlign: TextAlign.center,
+      body: Stack(
+        children: [
+          SplashViewBackground(),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsetsGeometry.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GlassCard(
+                    child: Column(
+                      spacing: 14,
+                      children: [
+                        Text(
+                          "Feeling Snackish Today?",
+                          style: SnackishStyles.headingMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                        Text(
+                          "Explore Angi's most popular snack selection and get instantly happy.",
+                          style: SnackishStyles.textLight,
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 4),
+                        OrderButton(),
+                      ],
                     ),
-                    Text(
-                      "Explore Angi's most popular snack selection and get instantly happy.",
-                      style: SnackishStyles.textLight,
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    OrderButton()
-                  ]
-                )
+                  ),
+                ],
               ),
-            ],
-          )),
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
