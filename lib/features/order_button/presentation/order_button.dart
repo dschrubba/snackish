@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jp_app/common/blendmask.dart';
 import 'package:jp_app/themes/colors.dart';
 import 'package:jp_app/themes/styles.dart';
 
@@ -21,6 +20,38 @@ class OrderButton extends StatelessWidget {
     blurRadius: 15,
   );
 
+  static const Gradient candyGradient = RadialGradient(
+    radius: 4,
+    center: AlignmentGeometry.xy(1,3),
+    colors: [
+      SnackishColors.orderNowBtnGradientA,
+      SnackishColors.orderNowBtnGradientB,
+    ],
+  );
+
+  static const Gradient borderGradient = LinearGradient(
+    colors: [
+      SnackishColors.orderNowBtnStrokeA,
+      SnackishColors.orderNowBtnStrokeB,
+    ],
+  );
+
+  static TextButton textButton(String text) {
+    return TextButton(
+      onPressed: () {},
+      style: ButtonStyle(
+        padding: WidgetStateProperty.all(EdgeInsets.all(1)),
+        minimumSize: WidgetStateProperty.all(
+          Size(double.infinity, double.infinity),
+        ),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
+        ),
+      ),
+      child: Text(text, style: SnackishStyles.buttonLabelLarge),
+    );
+  }
+
   final double maxWidth;
   final String buttonText;
 
@@ -35,88 +66,39 @@ class OrderButton extends StatelessWidget {
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: 56, maxWidth: maxWidth),
       child: ClipRRect(
-            borderRadius: BorderRadiusGeometry.circular(borderRadius),child:  Stack(
-        children: [Container(
+        clipBehavior: Clip.antiAlias,
+        borderRadius: BorderRadiusGeometry.circular(borderRadius),
+        child: Stack(
+          children: [
+            // Background with candy gradient, needed as base color behind border
+            Container(
               decoration: BoxDecoration(
-                gradient: RadialGradient(
-                  colors: [
-                    SnackishColors.orderNowBtnGradientA,
-                    SnackishColors.orderNowBtnGradientB,
-                  ],
-                ),
-              ),
-          ),
-          Container(
-              decoration: BoxDecoration(
-                backgroundBlendMode: BlendMode.overlay,
-                gradient: LinearGradient(
-                  colors: [
-                    SnackishColors.orderNowBtnStrokeA,
-                    SnackishColors.orderNowBtnStrokeB,
-                  ],
-                ),
+                gradient: candyGradient
               ),
             ),
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            padding: EdgeInsets.all(borderWidth),
-            child: ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(
-                borderRadius - (borderWidth / 2),
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: RadialGradient(
-                    radius: 4,
-                    center: AlignmentGeometry.xy(1, 1),
-                    colors: [
-                      SnackishColors.orderNowBtnGradientA,
-                      SnackishColors.orderNowBtnGradientB,
-                    ],
-                  ),
-                ),
-                child: BlendMask(blendMode: BlendMode.overlay, child: Container(
-                decoration: BoxDecoration( 
-                  boxShadow: [
-                    OrderButton.innerShadowA,
-                    OrderButton.innerShadowB,
-                  ],
-                ),))
+            // Button Border
+            Container(
+              decoration: BoxDecoration(
+                gradient: borderGradient
               ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(borderWidth),
-            child: ClipRRect(
-              borderRadius: BorderRadiusGeometry.circular(
-                borderRadius - (borderWidth / 2),
-              ),
-              child: Center(
-                  child: TextButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      padding: WidgetStateProperty.all(
-                        EdgeInsets.all(1)
-                      ),
-                      minimumSize: WidgetStateProperty.all(
-                        Size(double.infinity, double.infinity),
-                      ),
-                      shape: WidgetStateProperty.all(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(0),
-                        ),
-                      ),
-                      //fixedSize: WidgetStateProperty.all(const Size(200, 48)),
-                    ),
-                    child: Text(
-                      buttonText,
-                      style: SnackishStyles.buttonLabelLarge,
-                    ),
-                  ),
+            // Padding to simulate border
+            Padding(
+              padding: EdgeInsetsGeometry.all(borderWidth),
+              child: ClipRRect(
+                borderRadius: BorderRadiusGeometry.circular(borderRadius - (borderWidth / 2)),
+                child: Container(
+                  decoration: BoxDecoration(
+                  gradient: candyGradient
                 ),
-            ))],
+                            ),
+              ),
+            ),
+            // Actual button for interaction
+            textButton(buttonText)
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
