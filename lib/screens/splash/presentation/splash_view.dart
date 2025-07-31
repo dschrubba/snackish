@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jp_app/common/glass_card.dart';
-import 'package:jp_app/common/static_images.dart';
 import 'package:jp_app/features/order_button/presentation/order_button.dart';
-import 'package:jp_app/features/splash/presentation/splash_view_background.dart';
+import 'package:jp_app/screens/splash/presentation/splash_view_background.dart';
 import 'package:jp_app/themes/styles.dart';
 
 class SplashView extends StatefulWidget {

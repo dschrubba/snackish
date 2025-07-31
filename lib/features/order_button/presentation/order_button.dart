@@ -106,7 +106,11 @@ class OrderButton extends StatelessWidget {
             ),
           ),
           // Actual button for interaction
-          textButton(buttonText),
+          ClipRRect(
+            clipBehavior: Clip.antiAlias,
+            borderRadius: BorderRadiusGeometry.circular(borderRadius),
+            child: textButton(buttonText),
+          ),
         ],
       ),
     );

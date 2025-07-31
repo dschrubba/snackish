@@ -1,6 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:jp_app/common/glass_backdrop.dart';
+import 'package:jp_app/common/glass_border.dart';
 
 class GlassCard extends StatelessWidget {
   static const double borderRadius = 32;
@@ -10,24 +10,20 @@ class GlassCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      clipBehavior: Clip.antiAlias,
-      borderRadius: BorderRadiusGeometry.circular(borderRadius),
-      child: BackdropFilter(
-        blendMode: BlendMode.srcATop,
-        filter: ImageFilter.blur(sigmaX: 32, sigmaY: 32),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Color(0x01FFFFFF),
-            borderRadius: BorderRadiusGeometry.circular(borderRadius),
-            border: Border.all(
-              strokeAlign: BorderSide.strokeAlignInside,
-              color: Colors.white.withAlpha((255/100*30).round()),
-              width: borderWidth,
+    return SizedBox(
+      child: ClipRRect(
+        clipBehavior: Clip.antiAlias,
+        borderRadius: BorderRadiusGeometry.circular(borderRadius),
+
+        child: GlassBackdrop(
+          child: Container(
+            decoration: GlassBorder.decoration(
+              context,
+              borderRadius,
+              borderWidth,
             ),
+            child: Padding(padding: EdgeInsetsGeometry.all(24), child: child),
           ),
-          child: Padding(
-            padding: EdgeInsetsGeometry.all(32), child: child),
         ),
       ),
     );

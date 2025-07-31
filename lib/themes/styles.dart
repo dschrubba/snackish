@@ -14,9 +14,23 @@ class SnackishStyles {
     fontWeight: FontWeight.w900,
     color: SnackishColors.textLight
   );
+  static const headerText = TextStyle(
+    height: 1.2,
+    letterSpacing: 1,
+    fontSize: 26,
+    fontWeight: FontWeight.w900,
+    color: SnackishColors.textLight
+  );
+  /* Button Labels */
   static const buttonLabelLarge = TextStyle(
     height: 1,
     fontSize: 18,
+    color: SnackishColors.textLight
+  );
+  static const buttonLabelMedium = TextStyle(
+    height: 1,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
     color: SnackishColors.textLight
   );
 }
