@@ -15,7 +15,7 @@ class GlassBackdrop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 32, sigmaY: 32),
+      filter: ImageFilter.blur(sigmaX: 32, sigmaY: 32, tileMode: TileMode.mirror),
       child: SizedBox(width: width, height: height, child: child),
     );
   }

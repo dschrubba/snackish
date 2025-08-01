@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jp_app/common/glass_backdrop.dart';
-import 'package:jp_app/common/glass_border.dart';
+import 'package:jp_app/common/glass_elements/glass_backdrop.dart';
+import 'package:jp_app/common/glass_elements/glass_border.dart';
 
 class GlassCard extends StatelessWidget {
   static const double borderRadius = 32;
