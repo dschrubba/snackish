@@ -3,6 +3,7 @@ import 'package:jp_app/screens/home/domain/home_categories.dart';
 import 'package:jp_app/screens/home/domain/home_header.dart';
 import 'package:jp_app/screens/home/domain/menu_item.dart';
 import 'package:jp_app/screens/home/presentation/home_view_background.dart';
+import 'package:jp_app/themes/styles.dart';
 
 class HomeView extends StatefulWidget {
   static const String headerText = "Choose your favorite\nSnack";
@@ -33,6 +34,19 @@ class _HomeViewState extends State<HomeView> {
                 SizedBox(height: 16),
                 HomeCategories(),
                 MenuItem(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 0,
+                    horizontal: 24
+                  ),
+                  child: Text(
+                    "We Recommend",
+                    style: SnackishStyles.headerText.copyWith(
+                      fontSize: 16
+                    ),
+                  ),
+                )
+                
               ],
             ),
           ),

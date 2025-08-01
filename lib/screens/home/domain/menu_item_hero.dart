@@ -17,119 +17,113 @@ class MenuItemHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-          children: [
-            Center(
-              child: GlassBackdrop(
-                child: BlendMask(
-                  blendMode: BlendMode.dstATop,
-                  child: maskImage,
-                ),
-              ),
-            ),
-            Center(
-              child: BlendMask(
-                opacity: 0.5,
-                blendMode: BlendMode.srcATop,
-                child: maskImage,
-              ),
-            ),
-            /* Padding to restrict content to glass area */
-            Padding(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: 32,
-                vertical: 0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Center(
+          child: GlassBackdrop(
+            child: BlendMask(blendMode: BlendMode.dstATop, child: maskImage),
+          ),
+        ),
+        Center(
+          child: BlendMask(
+            opacity: 0.5,
+            blendMode: BlendMode.srcATop,
+            child: maskImage,
+          ),
+        ),
+        /* Padding to restrict content to glass area */
+        Padding(
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 32, vertical: 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /* Left col with heading, description, etc. */
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  /* Left col with heading, description, etc. */
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      /* Menu Item Heading */
-                      Padding(
-                        padding: EdgeInsetsGeometry.only(top: 24, left: 8),
-                        child: Text(
-                          "Angi's Yummy Burger",
-                          style: SnackishStyles.menuItemHeading,
-                        ),
-                      ),
-                      /* Menu Item Text */
-                      Padding(
-                        padding: EdgeInsetsGeometry.only(top: 8, left: 8),
-                        child: Text(
-                          "Delish vegan burger\nthat tastes like heaven",
-                          style: SnackishStyles.menuItemText,
-                        ),
-                      ),
-                      /* Menu Item Price */
-                      Padding(
-                        padding: EdgeInsetsGeometry.only(top: 16, left: 8),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 8,
-                          children: [
-                            SFIcon(
-                              SFIcons.sf_australsign, // 'heart.fill'
-                              fontSize: SnackishStyles
-                                  .menuItemPrice
-                                  .fontSize, // fontSize instead of size
-                              fontWeight: FontWeight
-                                  .bold, // fontWeight instead of weight
-                              color: SnackishStyles.menuItemPrice.color,
-                            ),
-                            Text("13.99", style: SnackishStyles.menuItemPrice),
-                          ],
-                        ),
-                      ),
-                    ],
+                  /* Menu Item Heading */
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(top: 24, left: 8),
+                    child: Text(
+                      "Angi's Yummy Burger",
+                      style: SnackishStyles.menuItemHeading,
+                    ),
                   ),
-                  /* Right col with rating */
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsGeometry.only(top: 24, right: 16),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          spacing: 4,
-                          children: [
-                            SFIcon(
-                              SFIcons.sf_star_fill, // 'heart.fill'
-                              fontSize: SnackishStyles
-                                  .menuItemText
-                                  .fontSize, // fontSize instead of size
-                              fontWeight: FontWeight
-                                  .bold, // fontWeight instead of weight
-                              color: Color(0xFFef83b6),
-                            ),
-                            Text("4.8", style: SnackishStyles.menuItemText),
-                          ],
+                  /* Menu Item Text */
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(top: 8, left: 8),
+                    child: Text(
+                      "Delish vegan burger\nthat tastes like heaven",
+                      style: SnackishStyles.menuItemText,
+                    ),
+                  ),
+                  /* Menu Item Price */
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(top: 16, left: 8),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 8,
+                      children: [
+                        SFIcon(
+                          SFIcons.sf_australsign, // 'heart.fill'
+                          fontSize: SnackishStyles
+                              .menuItemPrice
+                              .fontSize, // fontSize instead of size
+                          fontWeight:
+                              FontWeight.bold, // fontWeight instead of weight
+                          color: SnackishStyles.menuItemPrice.color,
                         ),
-                      ),
-                    ],
+                        Text("13.99", style: SnackishStyles.menuItemPrice),
+                      ],
+                    ),
                   ),
                 ],
               ),
-            ),
-            /* Menu Item Hero Button */
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 160,
-                left: 40
+              /* Right col with rating */
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsGeometry.only(top: 24, right: 16),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 4,
+                      children: [
+                        SFIcon(
+                          SFIcons.sf_star_fill, // 'heart.fill'
+                          fontSize: SnackishStyles
+                              .menuItemText
+                              .fontSize, // fontSize instead of size
+                          fontWeight:
+                              FontWeight.bold, // fontWeight instead of weight
+                          color: Color(0xFFef83b6),
+                        ),
+                        Text("4.8", style: SnackishStyles.menuItemText),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              child: ManuItemHeroButton(),
+            ],
+          ),
+        ),
+        /* Menu Item Hero Button */
+        Padding(
+          padding: const EdgeInsets.only(top: 160, left: 40),
+          child: ManuItemHeroButton(),
+        ),
+        /* Menu Item Image */
+        Container(
+          height: 295,
+          child: Transform.translate(
+            offset: Offset(120, 0),
+            child: Transform.scale(
+              scale: .75,
+              child: Image.asset(StaticImages.imageBurger),
             ),
-            /* Menu Item Image */
-            Transform.translate(
-              offset: Offset(70, -40),
-              child: Transform.scale(
-                scale: .55,
-                child: Image.asset(StaticImages.imageBurger),
-              ),
-            ),
-          ],
-        );
+          ),
+        ),
+      ],
+    );
   }
 }

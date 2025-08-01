@@ -8,9 +8,7 @@ class MenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsGeometry.all(16),
-      child: Center(
-        child: MenuItemHero(),
-      ),
+      child: MenuItemHero(),
     );
   }
 }
