@@ -21,6 +21,25 @@ class SnackishStyles {
     fontWeight: FontWeight.w900,
     color: SnackishColors.textLight
   );
+  /* Menu Items */
+  static const menuItemHeading = TextStyle(
+    height: 1,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: SnackishColors.textLight
+  );
+  static const menuItemText = TextStyle(
+    height: 1.2,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: SnackishColors.textLight
+  );
+  static const menuItemPrice = TextStyle(
+    height: 1,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: SnackishColors.textLight
+  );
   /* Button Labels */
   static const buttonLabelLarge = TextStyle(
     height: 1,

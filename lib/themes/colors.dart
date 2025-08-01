@@ -25,4 +25,11 @@ class SnackishColors {
   static const orderNowBtnInnerShadowB = Color(0x7FFFACE4);
   static const orderNowBtnGlow         = Color(0x7FEA71C5);
 
+  /* Add to Order Button */
+  static const actionBtnGradientA      = Color(0xFF908CF5);
+  static const actionBtnGradientB      = Color(0xFFBB8DE1);
+  static const actionBtnInnerShdwA     = Color(0xFF9375B6);
+  static const actionBtnInnerShdwB     = Color(0xFFFFACE4);
+  static const actionBtnGlow           = Color(0x7FEA71C5);
+
 }
