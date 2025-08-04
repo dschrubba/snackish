@@ -13,12 +13,14 @@ List<MenuItemData> menuItems = [
     "Mogli's Cup",
     "Strawberry Ice Cream",
     8.99,
+    200
   ),
   MenuItemData(
     StaticImages.icecream,
     "Balu's Cup",
     "Pistachio Ice Cream",
     8.99,
+    250
   )
 ];
 
@@ -81,10 +83,7 @@ class _HomeViewState extends State<HomeView> {
                         SizedBox(width: 10),
                         ...menuItems.map((item) => MenuItem(
                           height: 300,
-                          imageAssetUrl: item.imageAssetUrl, 
-                          itemName: item.itemName, 
-                          itemDescription: item.itemDescription, 
-                          itemPrice: item.itemPrice))
+                          itemData: item,))
                       ],),
                   )
                 ],

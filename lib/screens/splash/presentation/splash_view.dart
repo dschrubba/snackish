@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jp_app/common/glass_elements/glass_card.dart';
 import 'package:jp_app/features/order_button/presentation/order_button.dart';
+import 'package:jp_app/screens/home/presentation/home_view.dart';
 import 'package:jp_app/screens/splash/presentation/splash_view_background.dart';
 import 'package:jp_app/themes/styles.dart';
 

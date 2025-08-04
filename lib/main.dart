@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jp_app/common/fonts/sf_fonts.dart';
-import 'package:jp_app/screens/home/presentation/home_view.dart';
+import 'package:jp_app/screens/splash/presentation/splash_view.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,8 +15,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: SFProDisplay.family
       ),
-      //home: SplashView()
-      home: HomeView()
+      home: SplashView()
     );
   }
 }

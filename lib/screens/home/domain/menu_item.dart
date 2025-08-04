@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sficon/flutter_sficon.dart';
+import 'package:jp_app/screens/home/overlays/menu_item_overlay.dart';
 import 'package:jp_app/themes/colors.dart';
 import 'package:jp_app/themes/styles.dart';
 
@@ -7,20 +8,14 @@ class MenuItem extends StatelessWidget {
   final double width;
   final double? height;
   final double padding;
-  final String imageAssetUrl;
-  final String itemName;
-  final String itemDescription;
-  final double itemPrice;
+  final MenuItemData itemData;
 
   const MenuItem({
     super.key,
     this.width = 228,
     this.height,
     this.padding = 16,
-    required this.imageAssetUrl,
-    required this.itemName,
-    required this.itemDescription,
-    required this.itemPrice,
+    required this.itemData,
   });
 
   static const double borderRadius = 24;
@@ -58,14 +53,14 @@ class MenuItem extends StatelessWidget {
                       /* Image */
                       Transform.scale(
                         scale: 1.2,
-                        child: Image.asset(imageAssetUrl),
+                        child: Image.asset(itemData.imageAssetUrl),
                       ),
                       /* */
                       SizedBox(height: 8),
                       /* Item Name */
-                      Text(itemName, style: SnackishStyles.menuItemName),
+                      Text(itemData.itemName, style: SnackishStyles.menuItemName),
                       /* Item Body */
-                      Text(itemDescription, style: SnackishStyles.menuItemBody),
+                      Text(itemData.itemDescription, style: SnackishStyles.menuItemBody),
                       /* */
                       SizedBox(height: 8),
                       /* Price & Likes */
@@ -86,7 +81,7 @@ class MenuItem extends StatelessWidget {
                                 color: SnackishStyles.menuItemHeroPrice.color,
                               ),
                               Text(
-                                itemPrice.toString(),
+                                itemData.itemPrice.toString(),
                                 style: SnackishStyles.menuItemPrice,
                               ),
                             ],
@@ -104,7 +99,7 @@ class MenuItem extends StatelessWidget {
                                     .normal, // fontWeight instead of weight
                                 color: SnackishStyles.menuItemBody.color,
                               ),
-                              Text("200", style: SnackishStyles.menuItemBody),
+                              Text(itemData.itemLikes.toString(), style: SnackishStyles.menuItemBody),
                             ],
                           ),
                         ],
@@ -119,7 +114,13 @@ class MenuItem extends StatelessWidget {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
-                      
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) => MenuItemOverlay(
+                          itemData: itemData,
+                          )
+                        );
                     },
                   ),
                 ),
@@ -136,11 +137,13 @@ class MenuItemData {
   final String itemName;
   final String itemDescription;
   final double itemPrice;
+  final double itemLikes;
 
   MenuItemData(
     this.imageAssetUrl,
     this.itemName,
     this.itemDescription,
     this.itemPrice,
+    this.itemLikes,
   );
 }

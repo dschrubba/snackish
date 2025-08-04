@@ -39,4 +39,8 @@ class SnackishColors {
   static const menuItemGradientA       = Color(0x00FFFFFF);
   static const menuItemGradientB       = Color(0xFF908CF5);
   static const menuItemGradientC       = Color(0xFF8C5BEA);
+
+  /* Menu Item Overlay */
+  static const menuItemOberlayBg       = Color.fromARGB(255, 39, 41, 36);
+
 }

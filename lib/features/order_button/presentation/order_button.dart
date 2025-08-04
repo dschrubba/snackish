@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jp_app/screens/home/presentation/home_view.dart';
 import 'package:jp_app/themes/colors.dart';
 import 'package:jp_app/themes/styles.dart';
 
@@ -43,9 +44,14 @@ class OrderButton extends StatelessWidget {
     ],
   );
 
-  static TextButton textButton(String text) {
+  static TextButton textButton(String text, BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => HomeView()),
+      );
+      },
       style: ButtonStyle(
         padding: WidgetStateProperty.all(EdgeInsets.all(1)),
         minimumSize: WidgetStateProperty.all(
@@ -109,7 +115,10 @@ class OrderButton extends StatelessWidget {
           ClipRRect(
             clipBehavior: Clip.antiAlias,
             borderRadius: BorderRadiusGeometry.circular(borderRadius),
-            child: textButton(buttonText),
+            child: textButton(
+              buttonText,
+              context
+              ),
           ),
         ],
       ),
