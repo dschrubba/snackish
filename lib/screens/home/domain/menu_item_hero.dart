@@ -46,7 +46,7 @@ class MenuItemHero extends StatelessWidget {
                     padding: EdgeInsetsGeometry.only(top: 24, left: 8),
                     child: Text(
                       "Angi's Yummy Burger",
-                      style: SnackishStyles.menuItemHeading,
+                      style: SnackishStyles.menuItemHeroHeading,
                     ),
                   ),
                   /* Menu Item Text */
@@ -54,7 +54,7 @@ class MenuItemHero extends StatelessWidget {
                     padding: EdgeInsetsGeometry.only(top: 8, left: 8),
                     child: Text(
                       "Delish vegan burger\nthat tastes like heaven",
-                      style: SnackishStyles.menuItemText,
+                      style: SnackishStyles.menuItemHeroText,
                     ),
                   ),
                   /* Menu Item Price */
@@ -67,13 +67,13 @@ class MenuItemHero extends StatelessWidget {
                         SFIcon(
                           SFIcons.sf_australsign, // 'heart.fill'
                           fontSize: SnackishStyles
-                              .menuItemPrice
+                              .menuItemHeroPrice
                               .fontSize, // fontSize instead of size
                           fontWeight:
                               FontWeight.bold, // fontWeight instead of weight
-                          color: SnackishStyles.menuItemPrice.color,
+                          color: SnackishStyles.menuItemHeroPrice.color,
                         ),
-                        Text("13.99", style: SnackishStyles.menuItemPrice),
+                        Text("13.99", style: SnackishStyles.menuItemHeroPrice),
                       ],
                     ),
                   ),
@@ -92,13 +92,13 @@ class MenuItemHero extends StatelessWidget {
                         SFIcon(
                           SFIcons.sf_star_fill, // 'heart.fill'
                           fontSize: SnackishStyles
-                              .menuItemText
+                              .menuItemHeroText
                               .fontSize, // fontSize instead of size
                           fontWeight:
                               FontWeight.bold, // fontWeight instead of weight
                           color: Color(0xFFef83b6),
                         ),
-                        Text("4.8", style: SnackishStyles.menuItemText),
+                        Text("4.8", style: SnackishStyles.menuItemHeroText),
                       ],
                     ),
                   ),
@@ -113,7 +113,7 @@ class MenuItemHero extends StatelessWidget {
           child: ManuItemHeroButton(),
         ),
         /* Menu Item Image */
-        Container(
+        SizedBox(
           height: 295,
           child: Transform.translate(
             offset: Offset(120, 0),

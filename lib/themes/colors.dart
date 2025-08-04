@@ -6,6 +6,9 @@ class SnackishColors {
 
   /* */
   static const textLight               = Color(0xFFF2F5F4);
+  static const textLightNinety         = Color(0xE6F2F5F4);
+  static const textLightTwoThirds      = Color(0xAAF2F5F4);
+  static const textLightHalf           = Color(0x7FF2F5F4);
   static const textDark                = Color(0xFF21212D);
 
   /* Dark Blue Gradient */
@@ -32,4 +35,8 @@ class SnackishColors {
   static const actionBtnInnerShdwB     = Color(0xFFFFACE4);
   static const actionBtnGlow           = Color(0x7FEA71C5);
 
+  /* Menu Item */
+  static const menuItemGradientA       = Color(0x00FFFFFF);
+  static const menuItemGradientB       = Color(0xFF908CF5);
+  static const menuItemGradientC       = Color(0xFF8C5BEA);
 }
