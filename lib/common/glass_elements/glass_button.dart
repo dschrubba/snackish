@@ -40,15 +40,8 @@ class _GlassButtonState extends State<GlassButton> {
         child: Stack(
           children: [
             GlassBackdrop(),
-            AnimatedOpacity(
-              duration: Duration(milliseconds: 250),
-              opacity: _selected ? 0.9 : 0.9, child: FittedBox(
-                fit: BoxFit.fill,
-                child: ColoredBox(color: Colors.red)
-              )
-              ),
             Material(
-              color: Colors.transparent,
+              color: _selected ? Color(0x7FFFFFFF) : Colors.transparent,
               child: InkWell(
                 onTap: () {
                   setState(() {
